@@ -14,14 +14,6 @@ import { List, withTheme, Avatar } from 'react-native-paper';
 
 function ListaCategoria({ data, navigation, theme }) {
   const { colors } = theme
-  const renderizaImagem = (uri) => {
-    return (
-      <Image
-        style={{ width: 50, height: 50, marginTop: -98, marginLeft: 8 }}
-        source={{ uri }}
-      />
-    )
-  }
 
   async function confirmaExclusaoRegistro() {
     try {
@@ -60,7 +52,7 @@ function ListaCategoria({ data, navigation, theme }) {
   const alteraCategoria = async (data) => {
 
     navigation.navigate('AdicionaCategoria',{
-      params: { param1: "foo", param2: "bar" }
+      params: { _id: data._id  }
     })
   }
 
@@ -88,13 +80,11 @@ function ListaCategoria({ data, navigation, theme }) {
         <View style={{ flex: 1, justifyContent: 'center', backgroundColor: colors.background, borderRadius: 20 }}>
           <List.Item
             title={data.nome}
-
-            leftAvatar={{ source: { uri:  `${BACKEND}/${data.foto.path}` } }}
             description={`status: ${data.status}`}
             descriptionStyle={[styles.descricao]}
             left={props => <List.Icon {...props} icon={"image"} />}
           />
-          {renderizaImagem(`${BACKEND}/${data.foto.path}`)}
+  
         </View>
       </TouchableOpacity>
     </Swipeable>

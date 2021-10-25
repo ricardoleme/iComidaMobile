@@ -3,6 +3,7 @@ import { View, StyleSheet, ActivityIndicator, FlatList, RefreshControl } from 'r
 import { Text, withTheme, List, Avatar } from 'react-native-paper'
 import Header from '../components/Header'
 import { BACKEND } from '../constants'
+import ListaCategoria from './ListaCategoria'
 
 function ListaCategorias({ navigation, theme }) {
     const { colors } = theme
