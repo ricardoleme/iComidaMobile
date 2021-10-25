@@ -8,6 +8,7 @@ const Stack = createStackNavigator()
 import Inicio from '../screens/Inicio'
 import Configuracoes from '../screens/Configuracoes'
 import ListaCategorias from '../screens/ListaCategorias'
+import AdicionaCategoria from '../screens/AdicionaCategoria'
 
 
 export default function Navigation(){
@@ -17,7 +18,8 @@ export default function Navigation(){
             <Stack.Navigator initialRouteName="Inicio" screenOptions={{headerShown: false}}>
                 <Stack.Screen name="Inicio" component={Inicio} />
                 <Stack.Screen name="Configuracoes" component={Configuracoes} /> 
-                <Stack.Screen name="ListaCategorias" component={ListaCategorias}  />       
+                <Stack.Screen name="ListaCategorias" component={ListaCategorias}  />
+                <Stack.Screen name="AdicionaCategoria" component={AdicionaCategoria}  />       
             </Stack.Navigator>
         </NavigationContainer>
     )

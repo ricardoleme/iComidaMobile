@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, ActivityIndicator, FlatList, RefreshControl } from 'react-native'
-import { Text, withTheme, List, Avatar } from 'react-native-paper'
+import { Text, withTheme, List, Avatar, FAB } from 'react-native-paper'
 import Header from '../components/Header'
 import { BACKEND } from '../constants'
 import ListaCategoria from './ListaCategoria'
@@ -22,7 +22,7 @@ function ListaCategorias({ navigation, theme }) {
             .then(response => response.json())
             .then(data => {
                 setCategorias(data)
-                console.log(data)
+                //console.log(data)
             })
             .catch(function (error) {
                 console.error('Erro ao obter as categorias! ' + error.message)
@@ -30,11 +30,11 @@ function ListaCategorias({ navigation, theme }) {
         setCarregandoCategorias(false)
     }
 
-    const onRefresh = React.useCallback(async() => {
+    const onRefresh = React.useCallback(async () => {
         setRefreshing(true)
-        try{
+        try {
             await obterCategorias()
-        } catch (error){
+        } catch (error) {
             console.error(error)
         }
         setRefreshing(false)
@@ -65,11 +65,25 @@ function ListaCategorias({ navigation, theme }) {
                             />}
                         />
                     )}
-
+                <FAB
+                    style={styles.fab}
+                    icon='plus'
+                    label=''
+                    onPress={() => navigation.navigate('AdicionaCategoria')}
+                />
 
             </View>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    fab:{
+        position: 'absolute',
+        margin: 16,
+        right: 4,
+        bottom: 8
+    }
+})
 
 export default withTheme(ListaCategorias)
