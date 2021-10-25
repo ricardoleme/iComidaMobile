@@ -5,24 +5,19 @@ import { AppContext } from '../themes/ThemeProvider'
 
 const Stack = createStackNavigator()
 
-import Home from '../screens/Home'
-import Sobre from '../screens/Sobre'
-import Tabs from './Tabs'
+import Inicio from '../screens/Inicio'
+import Configuracoes from '../screens/Configuracoes'
+import ListaCategorias from '../screens/ListaCategorias'
+
 
 export default function Navigation(){
     const { tema } = useContext(AppContext)
     return(
         <NavigationContainer theme={tema}>
-            <Stack.Navigator initialRouteName="Tabs">
-                <Stack.Screen
-                    name="Home"
-                    component={Tabs}
-                    options={{
-                        title: 'iComida',
-                        headerStyle: {backgroundColor: '#002984'},
-                        headerTintColor: '#FFFFFF'
-                    }} />
-            <Stack.Screen name="Sobre" component={Sobre} />        
+            <Stack.Navigator initialRouteName="Inicio" screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Inicio" component={Inicio} />
+                <Stack.Screen name="Configuracoes" component={Configuracoes} /> 
+                <Stack.Screen name="ListaCategorias" component={ListaCategorias}  />       
             </Stack.Navigator>
         </NavigationContainer>
     )
