@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { View, StyleSheet, ActivityIndicator, FlatList, RefreshControl } from 'react-native'
-import { Text, withTheme, List, Avatar, FAB } from 'react-native-paper'
+import { View, StyleSheet, FlatList, RefreshControl } from 'react-native'
+import { Text, withTheme, List, Avatar, FAB, ActivityIndicator } from 'react-native-paper'
 import Header from '../components/Header'
 import { BACKEND } from '../constants'
 import ListaCategoria from './ListaCategoria'
@@ -43,11 +43,12 @@ function ListaCategorias({ navigation, theme }) {
     return (
         <>
             <Header titulo="Categorias" voltar={true} navigation={navigation} />
+            {carregandoCategorias && <ActivityIndicator animating={true} size="large" color={colors.primary} />}
             <View>
                 <List.Subheader>
                     <Avatar.Icon size={24} icon="refresh" /> Para atualizar os dados
                 </List.Subheader>
-                {carregandoCategorias && <ActivityIndicator size="large" />}
+                
                 {categorias.length === 0 && !carregandoCategorias
                     ? (
                         <View>

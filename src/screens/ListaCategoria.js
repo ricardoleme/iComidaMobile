@@ -50,10 +50,7 @@ function ListaCategoria({ data, navigation, theme }) {
   }
 
   const alteraCategoria = async (data) => {
-
-    navigation.navigate('AdicionaCategoria',{
-      params: { _id: data._id  }
-    })
+    navigation.navigate('AlteraCategoria',{ categoria: data })
   }
 
   function botaoLadoDireito() {

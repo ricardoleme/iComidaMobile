@@ -9,6 +9,7 @@ import Inicio from '../screens/Inicio'
 import Configuracoes from '../screens/Configuracoes'
 import ListaCategorias from '../screens/ListaCategorias'
 import AdicionaCategoria from '../screens/AdicionaCategoria'
+import AlteraCategoria from '../screens/AlteraCategoria'
 
 
 export default function Navigation(){
@@ -19,7 +20,8 @@ export default function Navigation(){
                 <Stack.Screen name="Inicio" component={Inicio} />
                 <Stack.Screen name="Configuracoes" component={Configuracoes} /> 
                 <Stack.Screen name="ListaCategorias" component={ListaCategorias}  />
-                <Stack.Screen name="AdicionaCategoria" component={AdicionaCategoria}  />       
+                <Stack.Screen name="AdicionaCategoria" component={AdicionaCategoria}  /> 
+                <Stack.Screen name="AlteraCategoria" component={AlteraCategoria}  />      
             </Stack.Navigator>
         </NavigationContainer>
     )
